@@ -1,0 +1,11 @@
+[user]
+    name = Change Me
+    email = changeme@email.com
+[merge]
+    conflictstyle = diff3
+[alias]
+    gr = log --oneline --graph
+[color]
+    ui = true
+[core]
+    autocrlf = input
