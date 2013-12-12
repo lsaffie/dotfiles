@@ -16,7 +16,7 @@ WHT="\[\033[0;38m\]"  ;  WHT1="\[\033[1;38m\]"  #white
 
 PS1="\n$BLK1$BAR[$AQA1\u@\h${BLK1}] [$RED1\w${BLK1}]$BAR\n \$$NOCOLOR "
 if [ $VIM ] ; then
-  PS1="(v) [$BLU\u@$LOCALHOST$BLU1\w$NOCOLOR]\\$ "
+  PS1="(v) [$YEL\u@$LOCALHOST$YEL1\w$NOCOLOR]\\$ "
 else
-  PS1="[$BLU\u@$LOCALHOST $BLU1\w$NOCOLOR\$(__git_ps1 ' ($PUR%s$NOCOLOR)')]\\$ "
+  PS1="[$YEL\u@$LOCALHOST $YEL1\w$NOCOLOR\$(__git_ps1 ' ($PUR%s$NOCOLOR)')]\\$ "
 fi
