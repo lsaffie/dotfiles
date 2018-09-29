@@ -22,10 +22,13 @@ alias 2-left  move screenOriginX;screenOriginY                               scr
 alias 2-left-top  move screenOriginX;screenOriginY                           screenSizeX/2;screenSizeY/2 ${mon-samsung}
 alias 2-right move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY   ${mon-samsung}
 
-alias 3-main  move screenOriginX;screenOriginY                               screenSizeX;screenSizeY     ${mon-benq}
-alias 3-left  move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY   ${mon-benq}
-alias 3-right move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY   ${mon-benq}
+alias 2-main  move screenOriginX;screenOriginY                               screenSizeX;screenSizeY     ${mon-benq}
+alias 2-left  move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY   ${mon-benq}
+alias 2-right move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY   ${mon-benq}
 alias 3-left-top  move screenOriginX;screenOriginY                           screenSizeX/2;screenSizeY/2 ${mon-samsung}
+alias 3-left  move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY   ${mon-samsung}
+alias 3-right move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY   ${mon-samsung}
+alias 3-main  move screenOriginX;screenOriginY                               screenSizeX;screenSizeY     ${mon-samsung}
 
 # 1 Monitor layout
 layout 1monitor 'iTerm':SORT_TITLE                       ${1-main}
@@ -40,23 +43,12 @@ layout 2monitors 'ical':REPEAT                            ${1-main}
 layout 2monitors 'iTerm2':REPEAT                          ${1-main}
 layout 2monitors 'Google Chrome':MAIN_FIRST               ${2-left} | ${2-right}
 
-# 3 Monitor layout
-#layout 3monitors 'iTerm2':REPEAT                          ${1-main}
-#layout 3monitors 'Evernote':REPEAT                        ${2-main}
-#layout 3monitors 'Slack':REPEAT                           ${2-right}
-#layout 3monitors 'Calendar':REPEAT                        ${2-left-top}
-#layout 3monitors 'Google Chrome':MAIN_FIRST               ${3-left} | ${3-right}
-
-layout 3monitors 'iTerm2':REPEAT                          ${2-main}
-layout 3monitors 'Evernote':REPEAT                        ${3-left-top}
 layout 3monitors 'Slack':REPEAT                           ${1-right}
 layout 3monitors 'Calendar':REPEAT                        ${1-left-top}
-layout 3monitors 'Google Chrome':MAIN_FIRST               ${3-left} | ${3-right}
-
-# Default Layouts
-#default 1monitor  resolutions:${mon-laptop}
-#default 2monitors resolutions:${mon-laptop};${mon-samsung}
-#default 3monitors resolutions:${mon-laptop};${mon-samsung};${mon-benq}
+layout 3monitors 'Google Chrome':MAIN_FIRST               ${2-left} | ${2-right}
+layout 3monitors 'iTerm2':REPEAT                          ${3-main}
+layout 3monitors 'Evernote':REPEAT                        ${3-right}
+layout 3monitors 'Todoist':REPEAT                         ${3-left}
 
 default 1monitor count:1
 default 2monitor count:2
