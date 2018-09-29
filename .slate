@@ -43,7 +43,7 @@ layout 2monitors 'ical':REPEAT                            ${1-main}
 layout 2monitors 'iTerm2':REPEAT                          ${1-main}
 layout 2monitors 'Google Chrome':MAIN_FIRST               ${2-left} | ${2-right}
 
-layout 3monitors 'Slack':REPEAT                           ${1-right}
+layout 3monitors 'Slack':REPEAT                           ${1-main}
 layout 3monitors 'Calendar':REPEAT                        ${1-left-top}
 layout 3monitors 'Google Chrome':MAIN_FIRST               ${2-left} | ${2-right}
 layout 3monitors 'iTerm2':REPEAT                          ${3-main}
