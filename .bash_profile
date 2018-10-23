@@ -14,6 +14,8 @@ AQA="\[\033[0;36m\]"  ;  AQA1="\[\033[1;36m\]"
 GRY="\[\033[0;37m\]"  ;  GRY1="\[\033[1;37m\]"  #white
 WHT="\[\033[0;38m\]"  ;  WHT1="\[\033[1;38m\]"  #white
 
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
 PS1="\n$BLK1$BAR[$AQA1\u@\h${BLK1}] [$RED1\w${BLK1}]$BAR\n \$$NOCOLOR "
 if [ $VIM ] ; then
   PS1="(v) [$YEL\u@$LOCALHOST$YEL1\w$NOCOLOR]\\$ "
