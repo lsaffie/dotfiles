@@ -13,21 +13,21 @@ alias mon-samsung 2
 
 # Position Aliases
 alias 1-main  move screenOriginX;screenOriginY                               screenSizeX;screenSizeY     ${mon-laptop}
-alias 1-left  move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY   ${mon-laptop}
-alias 1-left-top  move screenOriginX;screenOriginY                           screenSizeX/2;screenSizeY/2   ${mon-laptop}
-alias 1-right move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY   ${mon-laptop}
+alias 1-l  move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY   ${mon-laptop}
+alias 1-top-l  move screenOriginX;screenOriginY                           screenSizeX/2;screenSizeY/2   ${mon-laptop}
+alias 1-r move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY   ${mon-laptop}
 
 alias 2-main  move   screenOriginX;screenOriginY                                  screenSizeX;screenSizeY     ${mon-samsung}
-alias 2-left  move   screenOriginX;screenOriginY                                  screenSizeX/2;screenSizeY   ${mon-benq}
-alias 2-right move   screenOriginX+screenSizeX/2;screenOriginY                    screenSizeX/2;screenSizeY   ${mon-benq}
-alias 2-left-top     move screenOriginX;screenOriginY                             screenSizeX/2;screenSizeY/2 ${mon-benq}
-alias 2-right-top    move screenOriginX+screenSizeX/2;screenOriginY               screenSizeX/2;screenSizeY/2 ${mon-benq}
-alias 2-left-bottom  move screenOriginX;screenOriginY+screenSizeY/2               screenSizeX/2;screenSizeY/2 ${mon-benq}
-alias 2-right-bottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2 ${mon-benq}
+alias 2-l  move   screenOriginX;screenOriginY                                  screenSizeX/2;screenSizeY   ${mon-benq}
+alias 2-r move   screenOriginX+screenSizeX/2;screenOriginY                    screenSizeX/2;screenSizeY   ${mon-benq}
+alias 2-top-l     move screenOriginX;screenOriginY                             screenSizeX/2;screenSizeY/2 ${mon-benq}
+alias 2-top-r    move screenOriginX+screenSizeX/2;screenOriginY               screenSizeX/2;screenSizeY/2 ${mon-benq}
+alias 2-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2               screenSizeX/2;screenSizeY/2 ${mon-benq}
+alias 2-bottom-r move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2 ${mon-benq}
 
-alias 3-left-top  move screenOriginX;screenOriginY                           screenSizeX/2;screenSizeY/2 ${mon-samsung}
-alias 3-left  move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY   ${mon-samsung}
-alias 3-right move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY   ${mon-samsung}
+alias 3-top-l  move screenOriginX;screenOriginY                           screenSizeX/2;screenSizeY/2 ${mon-samsung}
+alias 3-l  move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY   ${mon-samsung}
+alias 3-r move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY   ${mon-samsung}
 alias 3-main  move screenOriginX;screenOriginY                               screenSizeX;screenSizeY     ${mon-samsung}
 
 # 1 Monitor layout
@@ -41,16 +41,16 @@ layout 2monitors 'Evernote':REPEAT                        ${1-main}
 layout 2monitors 'Slack':REPEAT                           ${1-main}
 layout 2monitors 'ical':REPEAT                            ${1-main}
 layout 2monitors 'iTerm2':REPEAT                          ${1-main}
-#layout 2monitors 'Google Chrome':MAIN_FIRST               ${2-left-top} | ${2-right-top} | ${2-left-bottom}
-layout 2monitors 'Google Chrome':MAIN_FIRST:SORT_TITLE    ${2-left-top} | ${2-right-top}
-layout 2monitors 'Quip':MAIN_FIRST                        ${2-right-bottom}
+layout 2monitors 'Google Chrome':TITLE_ORDER_REGEX="Inbox";"lsaffie -" ${2-top-l} | ${2-top-r} | ${2-bottom-l}
+
+layout 2monitors 'Quip':MAIN_FIRST                        ${2-bottom-r}
 
 layout 3monitors 'Slack':REPEAT                           ${1-main}
-layout 3monitors 'Calendar':REPEAT                        ${1-left-top}
-layout 3monitors 'Google Chrome':MAIN_FIRST               ${2-left} | ${2-right}
+layout 3monitors 'Calendar':REPEAT                        ${1-top-l}
+layout 3monitors 'Google Chrome':MAIN_FIRST               ${2-l} | ${2-r}
 layout 3monitors 'iTerm2':REPEAT                          ${3-main}
-layout 3monitors 'Evernote':REPEAT                        ${3-right}
-layout 3monitors 'Todoist':REPEAT                         ${3-left}
+layout 3monitors 'Evernote':REPEAT                        ${3-r}
+layout 3monitors 'Todoist':REPEAT                         ${3-l}
 
 default 1monitor count:1
 default 2monitor count:2
@@ -61,8 +61,8 @@ bind pad0:ctrl ${1-main}
 bind [:ctrl    ${1-main}
 bind pad.:ctrl ${1-main}
 bind ]:ctrl    ${1-main}
-bind pad4:ctrl ${2-left}
-bind pad6:ctrl ${2-right}
+bind pad4:ctrl ${2-l}
+bind pad6:ctrl ${2-r}
 
 # Resize Bindings
 # NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
@@ -70,10 +70,10 @@ bind right:ctrl resize +10% +0
 bind left:ctrl  resize -10% +0
 bind up:ctrl    resize +0   -10%
 bind down:ctrl  resize +0   +10%
-#bind m:ctrl;alt;cmd resize -10% +0 bottom-right
-#bind h:ctrl;alt;cmd resize +10% +0 bottom-right
-#bind up:alt     resize +0   +10% bottom-right
-#bind down:alt   resize +0   -10% bottom-right
+#bind m:ctrl;alt;cmd resize -10% +0 bottom-r
+#bind h:ctrl;alt;cmd resize +10% +0 bottom-r
+#bind up:alt     resize +0   +10% bottom-r
+#bind down:alt   resize +0   -10% bottom-r
 
 # Push Bindings
 # NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
