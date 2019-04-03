@@ -102,3 +102,4 @@ then
     export SSH_AUTH_SOCK=$SOCK
 fi
 
+alias trebuchet="/Users/lsaffie/Dev/trebuchet-cli/bin/trebuchet"

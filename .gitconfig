@@ -1,6 +1,6 @@
 [user]
-    name = Change Me
-    email = changeme@email.com
+	name = Luis Saffie
+	email = lsaffie@wealthsimple.com
 [merge]
     conflictstyle = diff3
 [alias]
@@ -9,3 +9,5 @@
     ui = true
 [core]
     autocrlf = input
+[credential]
+	helper = osxkeychain

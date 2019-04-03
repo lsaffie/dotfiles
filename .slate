@@ -17,14 +17,14 @@ alias 1-left  move screenOriginX;screenOriginY                               scr
 alias 1-left-top  move screenOriginX;screenOriginY                           screenSizeX/2;screenSizeY/2   ${mon-laptop}
 alias 1-right move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY   ${mon-laptop}
 
-alias 2-main  move screenOriginX;screenOriginY                               screenSizeX;screenSizeY     ${mon-samsung}
-alias 2-left  move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY   ${mon-samsung}
-alias 2-left-top  move screenOriginX;screenOriginY                           screenSizeX/2;screenSizeY/2 ${mon-samsung}
-alias 2-right move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY   ${mon-samsung}
+alias 2-main  move   screenOriginX;screenOriginY                                  screenSizeX;screenSizeY     ${mon-samsung}
+alias 2-left  move   screenOriginX;screenOriginY                                  screenSizeX/2;screenSizeY   ${mon-benq}
+alias 2-right move   screenOriginX+screenSizeX/2;screenOriginY                    screenSizeX/2;screenSizeY   ${mon-benq}
+alias 2-left-top     move screenOriginX;screenOriginY                             screenSizeX/2;screenSizeY/2 ${mon-benq}
+alias 2-right-top    move screenOriginX+screenSizeX/2;screenOriginY               screenSizeX/2;screenSizeY/2 ${mon-benq}
+alias 2-left-bottom  move screenOriginX;screenOriginY+screenSizeY/2               screenSizeX/2;screenSizeY/2 ${mon-benq}
+alias 2-right-bottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2 ${mon-benq}
 
-alias 2-main  move screenOriginX;screenOriginY                               screenSizeX;screenSizeY     ${mon-benq}
-alias 2-left  move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY   ${mon-benq}
-alias 2-right move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY   ${mon-benq}
 alias 3-left-top  move screenOriginX;screenOriginY                           screenSizeX/2;screenSizeY/2 ${mon-samsung}
 alias 3-left  move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY   ${mon-samsung}
 alias 3-right move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY   ${mon-samsung}
@@ -41,7 +41,9 @@ layout 2monitors 'Evernote':REPEAT                        ${1-main}
 layout 2monitors 'Slack':REPEAT                           ${1-main}
 layout 2monitors 'ical':REPEAT                            ${1-main}
 layout 2monitors 'iTerm2':REPEAT                          ${1-main}
-layout 2monitors 'Google Chrome':MAIN_FIRST               ${2-left} | ${2-right}
+#layout 2monitors 'Google Chrome':MAIN_FIRST               ${2-left-top} | ${2-right-top} | ${2-left-bottom}
+layout 2monitors 'Google Chrome':MAIN_FIRST:SORT_TITLE    ${2-left-top} | ${2-right-top}
+layout 2monitors 'Quip':MAIN_FIRST                        ${2-right-bottom}
 
 layout 3monitors 'Slack':REPEAT                           ${1-main}
 layout 3monitors 'Calendar':REPEAT                        ${1-left-top}
@@ -68,16 +70,26 @@ bind right:ctrl resize +10% +0
 bind left:ctrl  resize -10% +0
 bind up:ctrl    resize +0   -10%
 bind down:ctrl  resize +0   +10%
-#bind l:ctrl;alt;cmd resize -10% +0 bottom-right
+#bind m:ctrl;alt;cmd resize -10% +0 bottom-right
 #bind h:ctrl;alt;cmd resize +10% +0 bottom-right
 #bind up:alt     resize +0   +10% bottom-right
 #bind down:alt   resize +0   -10% bottom-right
 
 # Push Bindings
 # NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
-bind l:ctrl;alt;cmd push right bar-resize:screenSizeX/2
-bind h:ctrl;alt;cmd push left  bar-resize:screenSizeX/2
-bind k:ctrl;alt;cmd push up    bar-resize:screenSizeX
+bind k:ctrl;cmd push up    bar-resize:screenSizeX
+bind l:ctrl;cmd push right bar-resize:screenSizeX/2
+bind h:ctrl;cmd push left  bar-resize:screenSizeX/2
+#bind j:ctrl;alt;cmd push down bar-resize:screenSizeY/2;screenSizeX/2
+#up
+bind k:ctrl;alt;cmd move windowTopLeftX;screenOriginY screenSizeX/2;screenSizeY/2
+#down
+bind j:ctrl;alt;cmd move windowTopLeftX;screenOriginY/2 screenSizeX/2;screenSizeY/2
+#left
+bind h:ctrl;alt;cmd move screenOriginX;windowTopLeftY screenSizeX/2;screenSizeY/2
+#right
+bind l:ctrl;alt;cmd move screenOriginX+screenSizeX/2;windowTopLeftY screenSizeX/2;screenSizeY/2
+bind m:ctrl;alt;cmd move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2 ${mon-benq}
 bind down:ctrl;alt;cmd push down  bar-resize:screenSizeY/2
 
 # Nudge Bindings
@@ -122,7 +134,7 @@ bind esc:cmd hint
 bind esc:ctrl grid
 
 # Reload .slate file
- bind 1:ctrl relaunch
+bind 1:ctrl relaunch
 
 # Test Cases
 source .slate.test if_exists
