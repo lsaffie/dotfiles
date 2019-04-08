@@ -41,7 +41,7 @@ layout 2monitors 'Evernote':REPEAT                        ${1-main}
 layout 2monitors 'Slack':REPEAT                           ${1-main}
 layout 2monitors 'ical':REPEAT                            ${1-main}
 layout 2monitors 'iTerm2':REPEAT                          ${1-main}
-layout 2monitors 'Google Chrome':TITLE_ORDER_REGEX="- Wealthsimple Mail -";"Trello" ${2-top-l} | ${2-top-r} | ${2-bottom-l}
+layout 2monitors 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail)";"Trello" ${2-top-l} | ${2-top-r} | ${2-bottom-l}
 
 layout 2monitors 'Quip':MAIN_FIRST                        ${2-bottom-r}
 
