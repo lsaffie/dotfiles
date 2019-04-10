@@ -103,3 +103,4 @@ then
 fi
 
 alias trebuchet="/Users/lsaffie/Dev/trebuchet-cli/bin/trebuchet"
+alias rmswp="find . -name "*.swp" -o -name "*.swo" -print | xargs rm"

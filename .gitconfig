@@ -5,6 +5,7 @@
     conflictstyle = diff3
 [alias]
     gr = log --oneline --graph
+    rhh = reset HEAD --hard
 [color]
     ui = true
 [core]
