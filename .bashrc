@@ -104,3 +104,4 @@ fi
 
 alias trebuchet="/Users/lsaffie/Dev/trebuchet-cli/bin/trebuchet"
 alias rmswp="find . -name "*.swp" -o -name "*.swo" -print | xargs rm"
+alias gitrebase="CURRENT_BRANCH=`git branch | grep \* | cut -d ' ' -f2`;git checkout master; git pull origin master; git checkout $CURRENT_BRANCH; git rebase master"
