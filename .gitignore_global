@@ -1,0 +1,15 @@
+.idea/
+.DS_Store
+.env
+.vsTODO
+TODO
+.rbenv-gemsets
+spec/examples.txt
+.overcommit.yml
+.byebug_history
+.vscode/
+knapsack_rspec_report.json
+node_modules/
+.bundle/
+coverage_full/
+*.swp
