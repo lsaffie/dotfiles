@@ -10,5 +10,6 @@
     ui = true
 [core]
     autocrlf = input
+	excludesfile = /Users/lsaffie/.gitignore_global
 [credential]
 	helper = osxkeychain
