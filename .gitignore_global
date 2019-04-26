@@ -13,3 +13,4 @@ node_modules/
 .bundle/
 coverage_full/
 *.swp
+*.swo
