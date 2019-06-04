@@ -113,7 +113,9 @@ bind down:cmd;alt focus behind
 
 # Layout Bindings
 bind 1:ctrl;alt;cmd    layout 1monitor
-bind 2:ctrl;alt;cmd    layout 2monitors
+#bind 2:ctrl;alt;cmd    layout 2monitors
+#get script from https://gist.github.com/lsaffie/bebd920d4ed632a3af643db5d21c4141
+bind 2:ctrl;alt;cmd    sequence shell wait path:~/Dev '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout 2monitors
 bind 3:ctrl;alt;cmd    layout 3monitors
 
 # Window Hints
