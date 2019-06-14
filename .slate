@@ -48,6 +48,7 @@ layout 2monitors 'Quip':MAIN_FIRST                        ${2-bottom-r}
 layout 3monitors 'Slack':REPEAT                           ${1-main}
 layout 3monitors 'Calendar':REPEAT                        ${1-top-l}
 layout 3monitors 'Google Chrome':MAIN_FIRST               ${2-l} | ${2-r}
+layout 3monitors 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail | SoundCloud)";"Trello |Tasks -|Reading -";"Calendar" ${2-l} | ${2-r}
 layout 3monitors 'iTerm2':REPEAT                          ${3-main}
 layout 3monitors 'Evernote':REPEAT                        ${3-r}
 layout 3monitors 'Todoist':REPEAT                         ${3-l}
@@ -112,11 +113,11 @@ bind up:cmd;alt   focus behind
 bind down:cmd;alt focus behind
 
 # Layout Bindings
-bind 1:ctrl;alt;cmd    layout 1monitor
+#bind 1:ctrl;alt;cmd    layout 1monitor
 #bind 2:ctrl;alt;cmd    layout 2monitors
 #get script from https://gist.github.com/lsaffie/bebd920d4ed632a3af643db5d21c4141
+bind 1:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout 3monitors
 bind 2:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout 2monitors
-bind 3:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout 3monitors
 
 # Window Hints
 bind esc:cmd hint
