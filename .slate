@@ -25,11 +25,11 @@ alias 2-top-r    move screenOriginX+screenSizeX/2;screenOriginY               sc
 alias 2-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2               screenSizeX/2;screenSizeY/2 ${mon-benq}
 alias 2-bottom-r move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2 ${mon-benq}
 
-alias 3-top-l  move screenOriginX;screenOriginY                           screenSizeX/3;screenSizeY/2   ${mon-samsung}
-alias 3-top-m  move screenOriginX+screenSizeX/3;screenOriginY             screenSizeX/3;screenSizeY/2   ${mon-samsung}
-alias 3-top-r move screenOriginX+screenSizeX/3*2;screenOriginY            screenSizeX/3;screenSizeY/2   ${mon-samsung}
-alias 3-main  move screenOriginX;screenOriginY                            screenSizeX;screenSizeY       ${mon-samsung}
-alias 3-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2          screenSizeX/3;screenSizeY/2   ${mon-samsung}
+alias 3-top-l     move screenOriginX;screenOriginY                          screenSizeX/3;screenSizeY/2
+alias 3-top-m     move screenOriginX+screenSizeX/3;screenOriginY            screenSizeX/3;screenSizeY/2
+alias 3-top-r     move screenOriginX+screenSizeX/3*2;screenOriginY          screenSizeX/3;screenSizeY/2
+alias 3-main      move screenOriginX;screenOriginY                          screenSizeX;screenSizeY
+alias 3-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2            screenSizeX/3;screenSizeY/2
 
 # 1 Monitor layout
 layout 1monitor 'iTerm':SORT_TITLE                       ${1-main}
@@ -85,15 +85,29 @@ bind k:ctrl;cmd push up    bar-resize:screenSizeX
 bind l:ctrl;cmd push right bar-resize:screenSizeX/2
 bind h:ctrl;cmd push left  bar-resize:screenSizeX/2
 
+## UP
 bind k:ctrl;alt;cmd move windowTopLeftX;screenOriginY screenSizeX/2;screenSizeY/2
+## Down
 bind j:ctrl;alt;cmd move windowTopLeftX;screenOriginY/2 screenSizeX/2;screenSizeY/2
+## Left
 bind h:ctrl;alt;cmd move screenOriginX;windowTopLeftY screenSizeX/2;screenSizeY/2
+## Right
 bind l:ctrl;alt;cmd move screenOriginX+screenSizeX/2;windowTopLeftY screenSizeX/2;screenSizeY/2
 
+##################################
+### 3 horizontal layout for TV ###
+##################################
+#
+## UP
 bind k:ctrl;alt;shift;cmd move windowTopLeftX;screenOriginY screenSizeX/3;screenSizeY/2
+## Down
 bind j:ctrl;alt;shift;cmd move windowTopLeftX;screenOriginY/2 screenSizeX/3;screenSizeY/2
+## Left
 bind h:ctrl;alt;shift;cmd move windowTopLeftX-screenSizeX/3;windowTopLeftY screenSizeX/3;screenSizeY/2
+## Right
 bind l:ctrl;alt;shift;cmd move windowTopLeftX+screenSizeX/3;windowTopLeftY screenSizeX/3;screenSizeY/2
+#
+##################################
 
 bind m:ctrl;alt;cmd move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2 ${mon-benq}
 bind down:ctrl;alt;cmd push down  bar-resize:screenSizeY/2
