@@ -7,8 +7,8 @@ config checkDefaultsOnLoad true
 config focusCheckWidthMax 3000
 
 # Monitor Aliases
-alias mon-laptop  0
-alias mon-tv      1
+alias mon-laptop  1
+alias mon-tv      0
 
 # Position Aliases
 alias 1-main  move screenOriginX;screenOriginY               screenSizeX;screenSizeY     ${mon-laptop}
@@ -90,6 +90,10 @@ bind k:ctrl;cmd push up    bar-resize:screenSizeX
 bind l:ctrl;cmd push right bar-resize:screenSizeX/2
 bind h:ctrl;cmd push left  bar-resize:screenSizeX/2
 
+##################################
+### 2 horizontal layout for TV ###
+##################################
+#
 ## UP
 bind k:ctrl;alt;cmd move windowTopLeftX;screenOriginY screenSizeX/2;screenSizeY/2
 ## Down
@@ -99,7 +103,9 @@ bind h:ctrl;alt;cmd move screenOriginX;windowTopLeftY screenSizeX/2;screenSizeY/
 ## Right
 bind l:ctrl;alt;cmd move screenOriginX+screenSizeX/2;windowTopLeftY screenSizeX/2;screenSizeY/2
 ## Center
-bind u:ctrl;alt;cmd move screenOriginX+500;windowTopLeftY screenSizeX/1.3;screenSizeY
+bind u:ctrl;alt;cmd move screenOriginX+500;screenOriginY screenSizeX/1.3;screenSizeY
+#
+##################################
 
 ##################################
 ### 3 horizontal layout for TV ###
