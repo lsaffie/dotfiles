@@ -12,55 +12,59 @@ alias mon-benq    0
 alias mon-samsung 2
 
 # Position Aliases
-alias 1-main  move screenOriginX;screenOriginY                               screenSizeX;screenSizeY     ${mon-laptop}
-alias 1-l  move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY   ${mon-laptop}
-alias 1-top-l  move screenOriginX;screenOriginY                           screenSizeX/2;screenSizeY/2   ${mon-laptop}
-alias 1-r move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY   ${mon-laptop}
+alias 1-main  move screenOriginX;screenOriginY               screenSizeX;screenSizeY     ${mon-laptop}
+alias 1-l  move screenOriginX;screenOriginY                  screenSizeX/2;screenSizeY   ${mon-laptop}
+alias 1-top-l  move screenOriginX;screenOriginY              screenSizeX/2;screenSizeY/2 ${mon-laptop}
+alias 1-r move screenOriginX+screenSizeX/2;screenOriginY     screenSizeX/2;screenSizeY   ${mon-laptop}
 
-alias 2-main  move   screenOriginX;screenOriginY                                  screenSizeX;screenSizeY     ${mon-samsung}
-alias 2-l  move   screenOriginX;screenOriginY                                  screenSizeX/2;screenSizeY   ${mon-benq}
+alias 2-main  move   screenOriginX;screenOriginY                              screenSizeX;screenSizeY     ${mon-samsung}
+alias 2-l  move   screenOriginX;screenOriginY                                 screenSizeX/2;screenSizeY   ${mon-benq}
 alias 2-r move   screenOriginX+screenSizeX/2;screenOriginY                    screenSizeX/2;screenSizeY   ${mon-benq}
-alias 2-top-l     move screenOriginX;screenOriginY                             screenSizeX/2;screenSizeY/2 ${mon-benq}
+alias 2-top-l     move screenOriginX;screenOriginY                            screenSizeX/2;screenSizeY/2 ${mon-benq}
 alias 2-top-r    move screenOriginX+screenSizeX/2;screenOriginY               screenSizeX/2;screenSizeY/2 ${mon-benq}
-alias 2-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2               screenSizeX/2;screenSizeY/2 ${mon-benq}
+alias 2-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2              screenSizeX/2;screenSizeY/2 ${mon-benq}
 alias 2-bottom-r move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2 ${mon-benq}
 
-alias 3-top-l  move screenOriginX;screenOriginY                           screenSizeX/3;screenSizeY/2   ${mon-samsung}
-alias 3-top-m  move screenOriginX+screenSizeX/3;screenOriginY             screenSizeX/3;screenSizeY/2   ${mon-samsung}
-alias 3-top-r move screenOriginX+screenSizeX/3*2;screenOriginY            screenSizeX/3;screenSizeY/2   ${mon-samsung}
-alias 3-main  move screenOriginX;screenOriginY                            screenSizeX;screenSizeY       ${mon-samsung}
-alias 3-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2          screenSizeX/3;screenSizeY/2   ${mon-samsung}
-alias 3-bottom-r  move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2   ${mon-samsung}
+alias 3-top-l     move screenOriginX;screenOriginY                          screenSizeX/3;screenSizeY/2
+alias 3-top-m     move screenOriginX+screenSizeX/3;screenOriginY            screenSizeX/3;screenSizeY/2
+alias 3-top-r     move screenOriginX+screenSizeX/3*2;screenOriginY          screenSizeX/3;screenSizeY/2
+alias 3-main      move screenOriginX;screenOriginY                          screenSizeX;screenSizeY
+alias 3-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2            screenSizeX/3;screenSizeY/2
+alias 3-bottom-r  move screenOriginX;screenOriginY+screenSizeY/2            screenSizeX/3;screenSizeY/2
 
 # 1 Monitor layout
-layout 1monitor 'iTerm':SORT_TITLE                       ${1-main}
-layout 1monitor 'Google Chrome':REPEAT                   ${1-main}
-layout 1monitor 'Evernote':REPEAT                        ${1-main}
+layout 1monitor 'iTerm':SORT_TITLE                 ${1-main}
+layout 1monitor 'Google Chrome':REPEAT             ${1-main}
+layout 1monitor 'Evernote':REPEAT                  ${1-main}
 
 # 2 Monitor layout
-layout 2monitors 'iTerm':SORT_TITLE                       ${2-main}
-layout 2monitors 'Evernote':REPEAT                        ${1-main}
-layout 2monitors 'Slack':REPEAT                           ${1-main}
-layout 2monitors 'ical':REPEAT                            ${1-main}
-layout 2monitors 'iTerm2':REPEAT                          ${1-main}
-layout 2monitors 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail | SoundCloud)";"Trello |Tasks -|Reading -";"Calendar" ${2-top-l} | ${2-top-r} | ${2-bottom-l}
-layout 2monitors 'Quip':MAIN_FIRST                        ${2-bottom-r}
+layout 2monitors 'iTerm':SORT_TITLE                ${2-main}
+layout 2monitors 'Evernote':REPEAT                 ${1-main}
+layout 2monitors 'Slack':REPEAT                    ${1-main}
+layout 2monitors 'ical':REPEAT                     ${1-main}
+layout 2monitors 'iTerm2':REPEAT                   ${1-main}
+#layout 2monitors 'Quip':MAIN_FIRST                 ${2-bottom-r}
+layout 2monitors 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail | SoundCloud)";"Trello |Tasks -|Reading -";"Calendar";"Quip" ${2-top-l} | ${2-top-r} | ${2-bottom-l} | ${2-bottom-r}
 
+layout 3monitors 'Slack':REPEAT                    ${1-main}
+layout 3monitors 'Calendar':REPEAT                 ${1-top-l}
+layout 3monitors 'Google Chrome':MAIN_FIRST        ${2-l} | ${2-r}
+layout 3monitors 'iTerm2':REPEAT                   ${3-main}
+layout 3monitors 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail | SoundCloud)";"Trello |Tasks -|Reading -";"Calendar" ${2-l} | ${2-r}
+
+###########
+# TV Layout
+###########
+#
 layout tv 'iTerm':SORT_TITLE                       ${2-main}
 layout tv 'Evernote':REPEAT                        ${1-main}
 layout tv 'Slack':REPEAT                           ${1-main}
 layout tv 'ical':REPEAT                            ${1-main}
 layout tv 'iTerm2':REPEAT                          ${1-main}
-layout tv 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail | SoundCloud)";"Trello |Tasks -|Reading -";"Calendar" ${3-top-l} | ${3-top-m} | ${3-top-r}
 layout tv 'Quip':MAIN_FIRST                        ${3-bottom-l}
-
-layout 3monitors 'Slack':REPEAT                           ${1-main}
-layout 3monitors 'Calendar':REPEAT                        ${1-top-l}
-layout 3monitors 'Google Chrome':MAIN_FIRST               ${2-l} | ${2-r}
-layout 3monitors 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail | SoundCloud)";"Trello |Tasks -|Reading -";"Calendar" ${2-l} | ${2-r}
-layout 3monitors 'iTerm2':REPEAT                          ${3-main}
-#layout 3monitors 'Evernote':REPEAT                        ${3-r}
-#layout 3monitors 'Todoist':REPEAT                         ${3-l}
+layout tv 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail | SoundCloud)";"Trello |Tasks -|Reading -";"Calendar" ${3-top-l} | ${3-top-m} | ${3-top-r}
+#
+###########
 
 default 1monitor count:1
 default 2monitor count:2
@@ -86,15 +90,29 @@ bind k:ctrl;cmd push up    bar-resize:screenSizeX
 bind l:ctrl;cmd push right bar-resize:screenSizeX/2
 bind h:ctrl;cmd push left  bar-resize:screenSizeX/2
 
+## UP
 bind k:ctrl;alt;cmd move windowTopLeftX;screenOriginY screenSizeX/2;screenSizeY/2
+## Down
 bind j:ctrl;alt;cmd move windowTopLeftX;screenOriginY/2 screenSizeX/2;screenSizeY/2
+## Left
 bind h:ctrl;alt;cmd move screenOriginX;windowTopLeftY screenSizeX/2;screenSizeY/2
+## Right
 bind l:ctrl;alt;cmd move screenOriginX+screenSizeX/2;windowTopLeftY screenSizeX/2;screenSizeY/2
 
+##################################
+### 3 horizontal layout for TV ###
+##################################
+#
+## UP
 bind k:ctrl;alt;shift;cmd move windowTopLeftX;screenOriginY screenSizeX/3;screenSizeY/2
+## Down
 bind j:ctrl;alt;shift;cmd move windowTopLeftX;screenOriginY/2 screenSizeX/3;screenSizeY/2
+## Left
 bind h:ctrl;alt;shift;cmd move windowTopLeftX-screenSizeX/3;windowTopLeftY screenSizeX/3;screenSizeY/2
+## Right
 bind l:ctrl;alt;shift;cmd move windowTopLeftX+screenSizeX/3;windowTopLeftY screenSizeX/3;screenSizeY/2
+#
+##################################
 
 bind m:ctrl;alt;cmd move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2 ${mon-benq}
 bind down:ctrl;alt;cmd push down  bar-resize:screenSizeY/2
@@ -132,8 +150,6 @@ bind down:cmd;alt focus behind
 #get script from https://gist.github.com/lsaffie/bebd920d4ed632a3af643db5d21c4141
 bind 1:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout 3monitors
 bind 2:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout 2monitors
-bind 3:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout tv
-
 
 # Window Hints
 bind esc:cmd hint
