@@ -30,6 +30,7 @@ alias 3-top-m  move screenOriginX+screenSizeX/3;screenOriginY             screen
 alias 3-top-r move screenOriginX+screenSizeX/3*2;screenOriginY            screenSizeX/3;screenSizeY/2   ${mon-samsung}
 alias 3-main  move screenOriginX;screenOriginY                            screenSizeX;screenSizeY       ${mon-samsung}
 alias 3-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2          screenSizeX/3;screenSizeY/2   ${mon-samsung}
+alias 3-bottom-r  move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2   ${mon-samsung}
 
 # 1 Monitor layout
 layout 1monitor 'iTerm':SORT_TITLE                       ${1-main}
@@ -131,6 +132,8 @@ bind down:cmd;alt focus behind
 #get script from https://gist.github.com/lsaffie/bebd920d4ed632a3af643db5d21c4141
 bind 1:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout 3monitors
 bind 2:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout 2monitors
+bind 3:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout tv
+
 
 # Window Hints
 bind esc:cmd hint
