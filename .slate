@@ -24,13 +24,13 @@ alias 2-top-r    move screenOriginX+screenSizeX/2;screenOriginY               sc
 alias 2-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2              screenSizeX/2;screenSizeY/2 ${screen-1}
 alias 2-bottom-r move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2 ${screen-1}
 
-alias 3-top-l     move screenOriginX;screenOriginY                          screenSizeX/3;screenSizeY/2 ${screen-1}
-alias 3-top-m     move screenOriginX+screenSizeX/3;screenOriginY            screenSizeX/3;screenSizeY/2 ${screen-1}
-alias 3-top-r     move screenOriginX+screenSizeX/3*2;screenOriginY          screenSizeX/3;screenSizeY/2 ${screen-1}
-alias 3-main      move screenOriginX;screenOriginY                          screenSizeX;screenSizeY ${screen-1}
-alias 3-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2            screenSizeX/3;screenSizeY/2 ${screen-1}
-alias 3-bottom-m  move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/2            screenSizeX/3;screenSizeY/2 ${screen-1}
-alias 3-bottom-r  move screenOriginX+screenSizeX/3*2;screenOriginY+screenSizeY/2            screenSizeX/3;screenSizeY/2 ${screen-1}
+alias 3-top-l     move screenOriginX;screenOriginY                               screenSizeX/3;screenSizeY/2 ${screen-1}
+alias 3-top-m     move screenOriginX+screenSizeX/3;screenOriginY                 screenSizeX/3;screenSizeY/2 ${screen-1}
+alias 3-top-r     move screenOriginX+screenSizeX/3*2;screenOriginY               screenSizeX/3;screenSizeY/2 ${screen-1}
+alias 3-main      move screenOriginX;screenOriginY                               screenSizeX;screenSizeY ${screen-1}
+alias 3-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2                 screenSizeX/3;screenSizeY/2 ${screen-1}
+alias 3-bottom-m  move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/2   screenSizeX/3;screenSizeY/2 ${screen-1}
+alias 3-bottom-r  move screenOriginX+screenSizeX/3*2;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2 ${screen-1}
 
 # 1 Monitor layout
 layout 1monitor 'iTerm':SORT_TITLE                 ${1-main}
@@ -38,7 +38,6 @@ layout 1monitor 'Google Chrome':REPEAT             ${1-main}
 layout 1monitor 'Evernote':REPEAT                  ${1-main}
 
 # 2 Monitor layout
-layout 2monitors 'iTerm':SORT_TITLE                ${2-main}
 layout 2monitors 'Evernote':REPEAT                 ${1-main}
 layout 2monitors 'Slack':REPEAT                    ${1-main}
 layout 2monitors 'ical':REPEAT                     ${1-main}
