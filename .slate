@@ -61,8 +61,7 @@ layout tv 'Evernote':REPEAT                        ${1-main}
 layout tv 'Slack':REPEAT                           ${3-bottom-r}
 layout tv 'ical':REPEAT                            ${1-main}
 layout tv 'iTerm2':REPEAT                          ${3-bottom-m}
-#layout tv 'Quip':MAIN_FIRST                        ${3-bottom-l}
-layout tv 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail | SoundCloud)";"Trello |Tasks -|Reading -";"Calendar";"Quip" ${3-top-l} | ${3-top-m} | ${3-top-r} | ${3-bottom-r}
+layout tv 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail | SoundCloud)";"Trello |Tasks -|Reading -";"Calendar";"Quip";"." ${3-top-l} | ${3-top-m} | ${3-top-r} | ${3-bottom-r} | ${3-bottom-l}
 #
 ###########
 
