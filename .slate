@@ -7,30 +7,37 @@ config checkDefaultsOnLoad true
 config focusCheckWidthMax 3000
 
 # Monitor Aliases
-alias screen-0  0
-alias screen-1  1
+alias screen-0  2560x1600
+alias screen-1  1 # TV
 
 # Position Aliases
-alias 1-main  move screenOriginX;screenOriginY               screenSizeX;screenSizeY     ${screen-0}
-alias 1-l  move screenOriginX;screenOriginY                  screenSizeX/2;screenSizeY   ${screen-0}
-alias 1-top-l  move screenOriginX;screenOriginY              screenSizeX/2;screenSizeY/2 ${screen-0}
-alias 1-r move screenOriginX+screenSizeX/2;screenOriginY     screenSizeX/2;screenSizeY   ${screen-0}
+alias 1-main     move screenOriginX;screenOriginY                                screenSizeX;screenSizeY
+alias 1-l        move screenOriginX;screenOriginY                                screenSizeX/2;screenSizeY
+alias 1-top-l    move screenOriginX;screenOriginY                                screenSizeX/2;screenSizeY/2
+alias 1-r        move screenOriginX+screenSizeX/2;screenOriginY                  screenSizeX/2;screenSizeY
 
-alias 2-main  move   screenOriginX;screenOriginY                              screenSizeX;screenSizeY     ${screen-0}
-alias 2-l  move   screenOriginX;screenOriginY                                 screenSizeX/2;screenSizeY   ${screen-1}
-alias 2-r move   screenOriginX+screenSizeX/2;screenOriginY                    screenSizeX/2;screenSizeY   ${screen-1}
-alias 2-top-l     move screenOriginX;screenOriginY                            screenSizeX/2;screenSizeY/2 ${screen-1}
-alias 2-top-r    move screenOriginX+screenSizeX/2;screenOriginY               screenSizeX/2;screenSizeY/2 ${screen-1}
-alias 2-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2              screenSizeX/2;screenSizeY/2 ${screen-1}
-alias 2-bottom-r move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2 ${screen-1}
+alias 2-main     move screenOriginX;screenOriginY                                screenSizeX;screenSizeY     ${screen-0}
+alias 2-l        move screenOriginX;screenOriginY                                screenSizeX/2;screenSizeY   ${screen-1}
+alias 2-r        move screenOriginX+screenSizeX/2;screenOriginY                  screenSizeX/2;screenSizeY   ${screen-1}
+alias 2-top-l    move screenOriginX;screenOriginY                                screenSizeX/2;screenSizeY/2 ${screen-1}
+alias 2-top-r    move screenOriginX+screenSizeX/2;screenOriginY                  screenSizeX/2;screenSizeY/2 ${screen-1}
+alias 2-bottom-l move screenOriginX;screenOriginY+screenSizeY/2                  screenSizeX/2;screenSizeY/2 ${screen-1}
+alias 2-bottom-r move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2 ${screen-1}
 
 alias 3-top-l     move screenOriginX;screenOriginY                               screenSizeX/3;screenSizeY/2 ${screen-1}
 alias 3-top-m     move screenOriginX+screenSizeX/3;screenOriginY                 screenSizeX/3;screenSizeY/2 ${screen-1}
 alias 3-top-r     move screenOriginX+screenSizeX/3*2;screenOriginY               screenSizeX/3;screenSizeY/2 ${screen-1}
-alias 3-main      move screenOriginX;screenOriginY                               screenSizeX;screenSizeY ${screen-1}
+alias 3-main      move screenOriginX;screenOriginY                               screenSizeX;screenSizeY     ${screen-1}
 alias 3-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2                 screenSizeX/3;screenSizeY/2 ${screen-1}
 alias 3-bottom-m  move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/2   screenSizeX/3;screenSizeY/2 ${screen-1}
 alias 3-bottom-r  move screenOriginX+screenSizeX/3*2;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2 ${screen-1}
+
+############################
+#Screen window poition alias
+############################
+#
+alias laptop-1-l ${1-l} {screen-0}
+alias laptop-1-r ${1-r} {screen-0}
 
 # 1 Monitor layout
 layout 1monitor 'iTerm':SORT_TITLE                 ${1-main}
@@ -45,25 +52,17 @@ layout 2monitors 'iTerm2':REPEAT                   ${1-main}
 #layout 2monitors 'Quip':MAIN_FIRST                 ${2-bottom-r}
 layout 2monitors 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail | SoundCloud)";"Trello |Tasks -|Reading -";"Calendar";"Quip" ${2-top-l} | ${2-top-r} | ${2-bottom-l} | ${2-bottom-r}
 
-layout 3monitors 'Slack':REPEAT                    ${1-main}
-layout 3monitors 'Calendar':REPEAT                 ${1-top-l}
-layout 3monitors 'Google Chrome':MAIN_FIRST        ${2-l} | ${2-r}
-layout 3monitors 'iTerm2':REPEAT                   ${3-main}
-layout 3monitors 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail | SoundCloud)";"Trello |Tasks -|Reading -";"Calendar" ${2-l} | ${2-r}
-
 ###########
 # TV Layout
 ###########
 #
 layout tv 'Slack':REPEAT                           ${3-bottom-r}
 layout tv 'iTerm2':REPEAT                          ${3-bottom-m}
-layout tv 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail | SoundCloud)";"Trello |Tasks -|Reading -";"Calendar";"Quip";"data";"youtube.com" ${3-top-l} | ${3-top-m} | ${3-top-r} | ${3-bottom-r} | ${3-bottom-l} | ${1-main}
-#
+layout tv 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail)";"(Trello |Tasks -|Reading -)";"Quip";"New Tab";" ";"(youtube.com | soundcloud | spotify)";"calendar" ${3-top-l} | ${3-top-m} | ${3-top-r} | ${3-bottom-l} | ${laptop-1-l} | ${laptop-1-r}
 ###########
 
 default 1monitor count:1
 default 2monitor count:2
-default 3monitor count:3
 
 # Basic location Bindings
 bind pad0:ctrl ${1-main}
@@ -148,10 +147,8 @@ bind up:cmd;alt   focus behind
 bind down:cmd;alt focus behind
 
 # Layout Bindings
-#bind 1:ctrl;alt;cmd    layout 1monitor
-#bind 2:ctrl;alt;cmd    layout 2monitors
 #get script from https://gist.github.com/lsaffie/bebd920d4ed632a3af643db5d21c4141
-bind 1:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout 3monitors
+bind 1:ctrl;alt;cmd    layout 1monitor
 bind 2:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout 2monitors
 bind 3:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout tv
 
@@ -165,7 +162,7 @@ bind esc:cmd hint
 bind esc:ctrl grid
 
 # Reload .slate file
-bind 1:ctrl relaunch
+bind 1:ctrl;alt relaunch
 
 # Test Cases
 source .slate.test if_exists
