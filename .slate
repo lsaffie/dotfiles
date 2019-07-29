@@ -49,7 +49,7 @@ layout 2monitors 'Evernote':REPEAT                 ${1-main}
 layout 2monitors 'Slack':REPEAT                    ${1-main}
 layout 2monitors 'ical':REPEAT                     ${1-main}
 layout 2monitors 'iTerm2':REPEAT                   ${1-main}
-#layout 2monitors 'Quip':MAIN_FIRST                 ${2-bottom-r}
+layout 2monitors 'Quip':MAIN_FIRST                 ${2-bottom-r}
 layout 2monitors 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail | SoundCloud)";"Trello |Tasks -|Reading -";"Calendar";"Quip" ${2-top-l} | ${2-top-r} | ${2-bottom-l} | ${2-bottom-r}
 
 ###########
@@ -58,7 +58,7 @@ layout 2monitors 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbo
 #
 layout tv 'Slack':REPEAT                           ${3-bottom-r}
 layout tv 'iTerm2':REPEAT                          ${3-bottom-m}
-layout tv 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail)";"(Trello |Tasks -|Reading -)";"Quip";"New Tab";" ";"(youtube.com | soundcloud | spotify)";"calendar" ${3-top-l} | ${3-top-m} | ${3-top-r} | ${3-bottom-l} | ${laptop-1-l} | ${laptop-1-r}
+layout tv 'Google Chrome':TITLE_ORDER_REGEX="YouTube";"Calendar";"(- Wealthsimple Mail - |Inbox | Luis Saffie Mail)";"(Trello|Tasks -|Reading -)";"Quip";" " ${laptop-1-l} | ${laptop-1-r} | ${3-top-l} | ${3-top-m} | ${3-top-r} | ${3-bottom-l}
 ###########
 
 default 1monitor count:1
