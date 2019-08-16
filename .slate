@@ -7,8 +7,8 @@ config checkDefaultsOnLoad true
 config focusCheckWidthMax 3000
 
 # Monitor Aliases
-alias screen-0  1 #2560x1600
-alias screen-1  0 # TV
+alias screen-0  2560x1600
+alias screen-1  1 # TV
 
 # Position Aliases
 alias 1-main     move screenOriginX;screenOriginY                                screenSizeX;screenSizeY
@@ -88,7 +88,7 @@ layout tv6 BEFORE shell path:~/dotfiles '/usr/bin/osascript set-all-chrome-windo
 #
 layout tv62 'Slack':REPEAT                           ${3/2-bottom-r}
 #layout tv62 'iTerm2':REPEAT                          ${3-bottom-m}
-layout tv62 'Google Chrome':REPEAT,IGNORE_FAIL,TITLE_ORDER_REGEX="YouTube";"Calendar";"(- Wealthsimple Mail - |Inbox | Luis Saffie Mail)";"(Trello|Tasks -|Reading -)";"Quip";"*" ${laptop-3/4-l} | ${laptop-1/4-r} | ${2/3-top-l} | ${2/3-top-m} | ${2/3-top-r} | ${3/2-bottom-l} | ${3/2-bottom-m}
+layout tv62 'Google Chrome':IGNORE_FAIL,TITLE_ORDER_REGEX="YouTube";"Calendar";"(- Wealthsimple Mail - |Inbox | Luis Saffie Mail)";"Quip";"(Trello|Tasks -|Reading -)";"*";"*" ${laptop-3/4-l} | ${laptop-1/4-r} | ${2/3-top-l} | ${2/3-top-m} | ${2/3-top-r} | ${3/2-bottom-l} | ${3/2-bottom-m}
 layout tv62 BEFORE shell path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt'
 #############
 
@@ -155,8 +155,10 @@ bind down:ctrl;alt;cmd push down  bar-resize:screenSizeY/2
 # NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
 bind right:ctrl;alt nudge +33.33% +0
 bind left:ctrl;alt  nudge -33.33% +0
-bind up:ctrl;alt    nudge +0   -10%
-bind down:ctrl;alt  nudge +0   +10%
+#bind up:ctrl;alt    nudge +0   -10%
+#bind down:ctrl;alt  nudge +0   +10%
+bind up:ctrl;alt    move windowTopLeftX;screenOriginY screenSizeX/3;screenSizeY/3
+bind down:ctrl;alt  move windowTopLeftX;screenOriginY+screenSizeY/3 screenSizeX/3;screenSizeY/1.5 ${screen-1}
 
 # Throw Bindings
 # NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
