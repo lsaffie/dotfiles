@@ -79,17 +79,17 @@ layout tv4 'Google Chrome':REPEAT,IGNORE_FAIL,TITLE_ORDER_REGEX="YouTube";"Calen
 layout tv6 'Slack':REPEAT                           ${1-main}
 layout tv6 'iTerm2':REPEAT                          ${3-bottom-m}
 layout tv6 'Google Chrome':REPEAT,IGNORE_FAIL,TITLE_ORDER_REGEX="YouTube";"Calendar";"(- Wealthsimple Mail - |Inbox | Luis Saffie Mail)";"(Trello|Tasks -|Reading -)";"Quip";" " ${laptop-1-l} | ${laptop-1-r} | ${3-top-l} | ${3-top-m} | ${3-top-r} | ${3-bottom-l}
-layout tv6 BEFORE shell path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt'
+#layout tv6 BEFORE shell path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt'
 #############
 #
 #############
 # TV Layout 6v2
 #############
 #
-layout tv62 'Slack':REPEAT                           ${3/2-bottom-r}
 #layout tv62 'iTerm2':REPEAT                          ${3-bottom-m}
-layout tv62 'Google Chrome':IGNORE_FAIL,TITLE_ORDER_REGEX="YouTube";"Calendar";"(- Wealthsimple Mail - |Inbox | Luis Saffie Mail)";"Quip";"(Trello|Tasks -|Reading -)";"*";"*" ${laptop-3/4-l} | ${laptop-1/4-r} | ${2/3-top-l} | ${2/3-top-m} | ${2/3-top-r} | ${3/2-bottom-l} | ${3/2-bottom-m}
-layout tv62 BEFORE shell path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt'
+layout tv62 'Google Chrome':REPEAT,TITLE_ORDER_REGEX="YouTube";"Calendar";"(- Wealthsimple Mail - |Inbox | Luis Saffie Mail)";"Quip";"(Trello|Tasks -|Reading -)";" ";" " ${laptop-3/4-l} | ${laptop-1/4-r} | ${2/3-top-l} | ${2/3-top-m} | ${2/3-top-r} | ${3/2-bottom-l} | ${3/2-bottom-m}
+layout tv62 'Slack':REPEAT                           ${3/2-bottom-r}
+#layout tv62 BEFORE shell path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt'
 #############
 
 default 1monitor count:1
@@ -187,8 +187,8 @@ bind 2:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript s
 #bind 3:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout tv6
 bind 3:ctrl;alt;cmd    layout tv6
 bind 4:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout tv4
-bind 5:ctrl;alt;cmd    layout tv6
-bind 6:ctrl;alt;cmd    layout tv62
+bind 5:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout tv6
+bind 6:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout tv62
 
 # Window Hints
 bind esc:cmd hint
