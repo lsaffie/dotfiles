@@ -114,6 +114,8 @@ bind down:ctrl  resize +0   +10%
 bind k:ctrl;cmd push up    bar-resize:screenSizeX
 bind l:ctrl;cmd push right bar-resize:screenSizeX/2
 bind h:ctrl;cmd push left  bar-resize:screenSizeX/2
+bind right:ctrl;cmd;alt nudge +0.5% +0
+bind left:ctrl;cmd;alt  nudge -0.5% +0
 
 ##################################
 ### 2 horizontal layout for TV ###
@@ -153,8 +155,6 @@ bind down:ctrl;alt;cmd push down  bar-resize:screenSizeY/2
 
 # Nudge Bindings
 # NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
-bind right:ctrl;alt nudge +33.33% +0
-bind left:ctrl;alt  nudge -33.33% +0
 bind up:ctrl;alt    move windowTopLeftX;screenOriginY screenSizeX/3;screenSizeY/3
 bind down:ctrl;alt  move windowTopLeftX;screenOriginY+screenSizeY/3 screenSizeX/3;screenSizeY/1.5
 
