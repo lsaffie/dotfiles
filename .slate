@@ -76,9 +76,8 @@ layout tv4 'Google Chrome':REPEAT,IGNORE_FAIL,TITLE_ORDER_REGEX="YouTube";"Calen
 # TV Layout 6
 #############
 #
-layout tv6 'iTerm2':REPEAT                          ${3-bottom-m}
-#layout tv6 'Google Chrome':REPEAT,IGNORE_FAIL,TITLE_ORDER_REGEX="YouTube";"Calendar";"(- Wealthsimple Mail - |Inbox | Luis Saffie Mail)";"(Trello|Tasks -|Reading -)";"Quip";" " ${laptop-1-l} | ${laptop-1-r} | ${3-top-l} | ${3-top-m} | ${3-top-r} | ${3-bottom-l}
-layout tv6 'Google Chrome':REPEAT,IGNORE_FAIL ${2/3-top-r} | ${2/3-top-m} | ${2/3-top-l} | ${3/2-bottom-l} | ${3/2-bottom-m} | ${3/2-bottom-r}
+layout tv6 'iTerm2':REPEAT                          ${2-main}
+layout tv6 'Google Chrome':REPEAT,IGNORE_FAIL ${2/3-top-l} | ${2/3-top-m} | ${2/3-top-r} | ${3/2-bottom-l} | ${3/2-bottom-m} | ${3/2-bottom-r}
 #layout tv6 BEFORE shell path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt'
 #############
 #
@@ -202,3 +201,10 @@ bind 1:ctrl;alt relaunch
 
 # Test Cases
 source .slate.test if_exists
+
+## show
+bind c:shift;cmd focus 'Calendar'
+bind m:shift;cmd focus 'Mail'
+bind t:shift;cmd focus 'iTerm2'
+bind h:shift;cmd focus 'Amazon Chime'
+bind g:shift;cmd focus 'Google Chrome'
