@@ -153,9 +153,11 @@ bind m:ctrl;alt;cmd move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX/2
 bind down:ctrl;alt;cmd push down  bar-resize:screenSizeY/2
 
 # Nudge Bindings
-# NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
-bind up:ctrl;alt    move windowTopLeftX;screenOriginY screenSizeX/3;screenSizeY/3
-bind down:ctrl;alt  move windowTopLeftX;screenOriginY+screenSizeY/3 screenSizeX/3;screenSizeY/1.5
+bind up:ctrl;alt     move windowTopLeftX;screenOriginY screenSizeX/3;screenSizeY/3
+bind down:ctrl;alt   move windowTopLeftX;screenOriginY+screenSizeY/3 screenSizeX/3;screenSizeY/1.5
+bind left:ctrl;alt   nudge -33% +0
+bind right:ctrl;alt  nudge +33% +0
+bind up:ctrl;alt;cmd move screenOriginX;screenOriginY screenSizeX/3;screenSizeY/3
 
 # Throw Bindings
 # NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
