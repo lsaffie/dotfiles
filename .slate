@@ -179,6 +179,14 @@ bind down:cmd     focus down
 bind up:cmd;alt   focus behind
 bind down:cmd;alt focus behind
 
+## screen section binding
+bind 1:ctrl;alt;cmd ${2/3-top-l}
+bind 2:ctrl;alt;cmd ${2/3-top-m}
+bind 3:ctrl;alt;cmd ${2/3-top-r}
+bind 4:ctrl;alt;cmd ${3/2-bottom-l}
+bind 5:ctrl;alt;cmd ${3/2-bottom-m}
+bind 6:ctrl;alt;cmd ${3/2-bottom-r}
+
 # Layout Bindings
 #get script from https://gist.github.com/lsaffie/bebd920d4ed632a3af643db5d21c4141
 bind 1:ctrl;alt;cmd    layout 1monitor
