@@ -1,15 +1,15 @@
 [user]
-	name = Luis Saffie
-	email = lsaffie@wealthsimple.com
+  name = Luis Saffie
+  email = lssaffie@amazon.com
 [merge]
-    conflictstyle = diff3
+  conflictstyle = diff3
 [alias]
-    gr = log --oneline --graph
-    rhh = reset HEAD --hard
+  gr = log --oneline --graph
+  rhh = reset HEAD --hard
 [color]
-    ui = true
+  ui = true
 [core]
-    autocrlf = input
-    excludesfile = /Users/lssaffie/.gitignore_global
+  autocrlf = input
+  excludesfile = /Users/lssaffie/.gitignore_global
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
