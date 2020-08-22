@@ -5,10 +5,14 @@ config resizePercentOf screenSize
 config secondsBetweenRepeat 0.1
 config checkDefaultsOnLoad true
 config focusCheckWidthMax 3000
+config switchOnlyFocusMainWindow false
+config focusPreferSameApp false
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
 
 # Monitor Aliases
-alias screen-0  1
-alias screen-1  0
+alias screen-0  0
+alias screen-1  1
 
 # Position Aliases
 alias 1-main     move screenOriginX;screenOriginY                                screenSizeX;screenSizeY
@@ -35,12 +39,16 @@ alias 3-bottom-l  move screenOriginX;screenOriginY+screenSizeY/2                
 alias 3-bottom-m  move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/2   screenSizeX/3;screenSizeY/2 ${screen-1}
 alias 3-bottom-r  move screenOriginX+screenSizeX/3*2;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2 ${screen-1}
 
-alias 2/3-top-l     move screenOriginX;screenOriginY                               screenSizeX/3;screenSizeY/3 ${screen-1}
-alias 2/3-top-m     move screenOriginX+screenSizeX/3;screenOriginY                 screenSizeX/3;screenSizeY/3 ${screen-1}
-alias 2/3-top-r     move screenOriginX+screenSizeX/3*2;screenOriginY               screenSizeX/3;screenSizeY/3 ${screen-1}
-alias 3/2-bottom-l  move screenOriginX;screenOriginY+screenSizeY/3                 screenSizeX/3;screenSizeY/1.5 ${screen-1}
-alias 3/2-bottom-m  move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/3   screenSizeX/3;screenSizeY/1.5 ${screen-1}
-alias 3/2-bottom-r  move screenOriginX+screenSizeX/3*2;screenOriginY+screenSizeY/3 screenSizeX/3;screenSizeY/1.5 ${screen-1}
+alias 2/3-top-l     move screenOriginX;screenOriginY                               screenSizeX/3;screenSizeY/3
+alias 2/3-top-m     move screenOriginX+screenSizeX/3;screenOriginY                 screenSizeX/3;screenSizeY/3
+alias 2/3-top-r     move screenOriginX+screenSizeX/3*2;screenOriginY               screenSizeX/3;screenSizeY/3
+alias 3/2-bottom-l  move screenOriginX;screenOriginY+screenSizeY/3                 screenSizeX/3;screenSizeY/1.5
+alias 3/2-bottom-m  move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/3   screenSizeX/3;screenSizeY/1.5
+alias 3/2-bottom-r  move screenOriginX+screenSizeX/3*2;screenOriginY+screenSizeY/3 screenSizeX/3;screenSizeY/1.5
+
+alias 1/3-top-l     move screenOriginX;screenOriginY                               screenSizeX/3;screenSizeY
+alias 1/3-top-m     move screenOriginX+screenSizeX/3;screenOriginY                 screenSizeX/3;screenSizeY
+alias 1/3-top-r     move screenOriginX+screenSizeX/3*2;screenOriginY               screenSizeX/3;screenSizeY
 
 ############################
 #Screen window poition alias
@@ -77,7 +85,8 @@ layout tv4 'Google Chrome':REPEAT,IGNORE_FAIL,TITLE_ORDER_REGEX="YouTube";"Calen
 #############
 #
 layout tv6 'iTerm2':REPEAT                          ${2-main}
-layout tv6 'Google Chrome':REPEAT,IGNORE_FAIL,TITLE_ORDER_REGEX="lsaffie - worklog" ${2/3-top-l} | ${2/3-top-m} | ${2/3-top-r} | ${3/2-bottom-l} | ${3/2-bottom-m} | ${3/2-bottom-r}
+layout tv6 'Google Chrome':REPEAT,IGNORE_FAIL,TITLE_ORDER_REGEX="lsaffie - worklog" ${2/3-top-l} | ${3/2-bottom-m} | ${3/2-bottom-l} | ${3/2-bottom-r} | ${2/3-top-m} | ${2/3-top-r}
+layout tv6 'Quip' ${3/2-bottom-r}
 #############
 #
 
@@ -100,9 +109,10 @@ bind up:ctrl    resize +0   -10%
 bind down:ctrl  resize +0   +10%
 
 # Push Bindings
-bind k:ctrl;cmd push up    bar-resize:screenSizeX
-bind l:ctrl;cmd push right bar-resize:screenSizeX/2
 bind h:ctrl;cmd push left  bar-resize:screenSizeX/2
+bind l:ctrl;cmd push right bar-resize:screenSizeX/2
+#bind k:ctrl;cmd push up    bar-resize:screenSizeX/10
+bind k:ctrl;cmd move screenOriginX+(screenSizeX*0.1);screenOriginY+(screenSizeY*0.05) screenSizeX*0.80;screenSizeY*0.85
 bind right:ctrl;cmd;alt nudge +0.5% +0
 bind left:ctrl;cmd;alt  nudge -0.5% +0
 
@@ -110,16 +120,16 @@ bind left:ctrl;cmd;alt  nudge -0.5% +0
 ### 2 horizontal layout for TV ###
 ##################################
 #
-## UP
-bind k:ctrl;alt;cmd move windowTopLeftX;screenOriginY screenSizeX/2;screenSizeY/2
-## Down
-bind j:ctrl;alt;cmd move windowTopLeftX;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2
-## Left
-bind h:ctrl;alt;cmd move screenOriginX;windowTopLeftY screenSizeX/2;screenSizeY/2
-## Right
-bind l:ctrl;alt;cmd move screenOriginX+screenSizeX/2;windowTopLeftY screenSizeX/2;screenSizeY/2
-## Center
-bind u:ctrl;alt;cmd move screenOriginX+500;screenOriginY screenSizeX/1.3;screenSizeY
+## Top left
+bind u:ctrl;alt;cmd move screenOriginX;screenOriginY screenSizeX/2;screenSizeY/2
+## Top Right
+bind o:ctrl;alt;cmd move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY/2
+## Bottom left
+bind j:ctrl;alt;cmd move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2
+## Bottom Right
+bind l:ctrl;alt;cmd move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2
+## Full screen
+bind k:ctrl;alt;cmd move screenOriginX;screenOriginY screenSizeX;screenSizeY
 #
 ##################################
 
@@ -166,16 +176,21 @@ bind right:cmd    focus right
 bind left:cmd     focus left
 bind up:cmd       focus up
 bind down:cmd     focus down
-bind up:cmd;alt   focus behind
-bind down:cmd;alt focus behind
+#bind up:cmd;alt   focus behind
+#bind down:cmd;alt focus behind
+
+## screen section binding cut it into 1/3rds
+bind u:ctrl;alt;shift ${1/3-top-l}
+bind i:ctrl;alt;shift ${1/3-top-m}
+bind o:ctrl;alt;shift ${1/3-top-r}
 
 ## screen section binding
-bind 1:ctrl;alt;cmd ${2/3-top-l}
-bind 2:ctrl;alt;cmd ${2/3-top-m}
-bind 3:ctrl;alt;cmd ${2/3-top-r}
-bind 4:ctrl;alt;cmd ${3/2-bottom-l}
-bind 5:ctrl;alt;cmd ${3/2-bottom-m}
-bind 6:ctrl;alt;cmd ${3/2-bottom-r}
+bind u:ctrl;alt ${2/3-top-l}
+bind i:ctrl;alt ${2/3-top-m}
+bind o:ctrl;alt ${2/3-top-r}
+bind j:ctrl;alt ${3/2-bottom-l}
+bind k:ctrl;alt ${3/2-bottom-m}
+bind l:ctrl;alt ${3/2-bottom-r}
 
 # Layout Bindings
 #get script from https://gist.github.com/lsaffie/bebd920d4ed632a3af643db5d21c4141
@@ -201,8 +216,14 @@ bind 1:ctrl;alt relaunch
 source .slate.test if_exists
 
 ## show
-bind c:shift;cmd focus 'Calendar'
-bind m:shift;cmd focus 'Mail'
+bind c:shift;cmd sequence focus 'Microsoft Outlook' | show 'Microsoft Outlook'
+bind m:shift;cmd sequence focus 'Microsoft Outlook' | show 'Microsoft Outlook'
+bind h:shift;cmd sequence focus 'Amazon Chime' | show 'Amazon Chime'
+bind g:shift;cmd sequence focus 'Google Chrome' | show 'Google Chrome'
 bind t:shift;cmd focus 'iTerm2'
-bind h:shift;cmd focus 'Amazon Chime'
-bind g:shift;cmd focus 'Google Chrome'
+bind q:shift;cmd focus 'Quip'
+bind s:shift;cmd focus 'Slack'
+
+# better applicaiton switcher (cmd/tab)
+#bind tab:cmd switch
+#
