@@ -1,0 +1,13 @@
+#!/bin/bash
+#APP="${1}"
+APP=$*
+
+function activate_app {
+/usr/bin/osascript <<END_SCRIPT
+tell application "${APP}"
+    activate
+end tell
+END_SCRIPT
+}
+
+activate_app

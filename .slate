@@ -216,13 +216,15 @@ bind 1:ctrl;alt relaunch
 source .slate.test if_exists
 
 ## show
-bind c:shift;cmd sequence focus 'Microsoft Outlook' | show 'Microsoft Outlook'
-bind m:shift;cmd sequence focus 'Microsoft Outlook' | show 'Microsoft Outlook'
-bind h:shift;cmd sequence focus 'Amazon Chime' | show 'Amazon Chime'
-bind g:shift;cmd sequence focus 'Google Chrome' | show 'Google Chrome'
+bind c:shift;cmd shell '/Users/lssaffie/bin/activate Microsoft Outlook'
+bind m:shift;cmd shell '/Users/lssaffie/bin/activate Microsoft Outlook'
+bind h:shift;cmd shell '/Users/lssaffie/bin/activate Amazon Chime'
+bind g:shift;cmd shell '/Users/lssaffie/bin/activate Google Chrome'
+bind q:shift;cmd shell '/Users/lssaffie/bin/activate Quip'
 bind t:shift;cmd focus 'iTerm2'
-bind q:shift;cmd focus 'Quip'
 bind s:shift;cmd focus 'Slack'
+
+
 
 # better applicaiton switcher (cmd/tab)
 #bind tab:cmd switch
