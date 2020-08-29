@@ -219,12 +219,10 @@ source .slate.test if_exists
 bind c:shift;cmd shell '/Users/lssaffie/bin/activate Microsoft Outlook'
 bind m:shift;cmd shell '/Users/lssaffie/bin/activate Microsoft Outlook'
 bind h:shift;cmd shell '/Users/lssaffie/bin/activate Amazon Chime'
-bind g:shift;cmd shell '/Users/lssaffie/bin/activate Google Chrome'
-bind q:shift;cmd shell '/Users/lssaffie/bin/activate Quip'
+bind q:shift;cmd focus 'Quip'
+bind q:shift;cmd focus 'Chrome'
 bind t:shift;cmd focus 'iTerm2'
 bind s:shift;cmd focus 'Slack'
-
-
 
 # better applicaiton switcher (cmd/tab)
 #bind tab:cmd switch
