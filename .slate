@@ -103,8 +103,8 @@ bind pad6:ctrl ${2-r}
 
 # Resize Bindings
 # NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
-bind right:ctrl resize +10% +0
-bind left:ctrl  resize -10% +0
+#bind right:ctrl resize +10% +0
+#bind left:ctrl  resize -10% +0
 bind up:ctrl    resize +0   -10%
 bind down:ctrl  resize +0   +10%
 
@@ -220,9 +220,10 @@ bind c:shift;cmd shell '/Users/lssaffie/bin/activate Microsoft Outlook'
 bind m:shift;cmd shell '/Users/lssaffie/bin/activate Microsoft Outlook'
 bind h:shift;cmd shell '/Users/lssaffie/bin/activate Amazon Chime'
 bind q:shift;cmd focus 'Quip'
-bind q:shift;cmd focus 'Chrome'
-bind t:shift;cmd focus 'iTerm2'
+bind g:shift;cmd focus 'Chrome'
+bind t:shift;cmd focus 'Microsoft To Do'
 bind s:shift;cmd focus 'Slack'
+bind f:shift;cmd focus 'Safari'
 
 # better applicaiton switcher (cmd/tab)
 #bind tab:cmd switch
