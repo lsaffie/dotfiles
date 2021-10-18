@@ -11,11 +11,11 @@ config windowHintsShowIcons true
 config windowHintsIgnoreHiddenWindows false
 
 # Monitor Aliases
-alias screen-0  0
-alias screen-1  1
+alias screen-0  1 #laptop
+alias screen-1  0 #External
 
 # Position Aliases
-alias 1-main     move screenOriginX;screenOriginY                                screenSizeX;screenSizeY
+alias 1-main     move screenOriginX;screenOriginY                                screenSizeX;screenSizeY ${screen-0}
 alias 1-l        move screenOriginX;screenOriginY                                screenSizeX/2;screenSizeY
 alias 1-top-l    move screenOriginX;screenOriginY                                screenSizeX/2;screenSizeY/2
 alias 1-r        move screenOriginX+screenSizeX/2;screenOriginY                  screenSizeX/2;screenSizeY
@@ -23,7 +23,7 @@ alias 1-r        move screenOriginX+screenSizeX/2;screenOriginY                 
 alias 1/4-r      move screenOriginX+screenSizeX/3;screenOriginY                  screenSizeX/1.5;screenSizeY
 alias 3/4-l      move screenOriginX;screenOriginY                                screenSizeX/3;screenSizeY
 
-alias 2-main     move screenOriginX;screenOriginY                                screenSizeX;screenSizeY     ${screen-0}
+alias 2-main     move screenOriginX;screenOriginY                                screenSizeX;screenSizeY     ${screen-1}
 alias 2-l        move screenOriginX;screenOriginY                                screenSizeX/2;screenSizeY   ${screen-1}
 alias 2-r        move screenOriginX+screenSizeX/2;screenOriginY                  screenSizeX/2;screenSizeY   ${screen-1}
 alias 2-top-l    move screenOriginX;screenOriginY                                screenSizeX/2;screenSizeY/2 ${screen-1}
@@ -60,33 +60,15 @@ alias laptop-1-r ${1-r} {screen-1}
 alias laptop-3/4-l ${3/4-l} {screen-1}
 alias laptop-1/4-r ${1/4-r} {screen-1}
 
-# 1 Monitor layout
-layout 1monitor 'iTerm':SORT_TITLE                 ${1-main}
-layout 1monitor 'Google Chrome':REPEAT             ${1-main}
-layout 1monitor 'Evernote':REPEAT                  ${1-main}
-
-# 2 Monitor layout
-layout 2monitors 'Slack':REPEAT                    ${1-main}
-layout 2monitors 'ical':REPEAT                     ${1-main}
-layout 2monitors 'iTerm2':REPEAT                   ${1-main}
-layout 2monitors 'Quip':MAIN_FIRST                 ${2-bottom-r}
-layout 2monitors 'Google Chrome':TITLE_ORDER_REGEX="(- Wealthsimple Mail - |Inbox | Luis Saffie Mail | SoundCloud)";"Trello |Tasks -|Reading -";"Calendar";"Quip" ${2-top-l} | ${2-top-r} | ${2-bottom-l} | ${2-bottom-r}
 
 #############
-# TV Layout 4
+# Amazon Layout
 #############
 #
-layout tv4 'Slack':REPEAT                           ${3-bottom-r}
-layout tv4 'Google Chrome':REPEAT,IGNORE_FAIL,TITLE_ORDER_REGEX="YouTube";"Calendar";"(- Wealthsimple Mail - |Inbox | Luis Saffie Mail)";"(Trello|Tasks -|Reading -)";"Quip";" " ${laptop-1-l} | ${laptop-1-r} | ${2-top-l} | ${2-top-r} | ${2-bottom-l} | ${2-bottom-r}
-#############
-
-#############
-# TV Layout 6
-#############
-#
-layout tv6 'iTerm2':REPEAT                          ${2-main}
-layout tv6 'Google Chrome':REPEAT,IGNORE_FAIL,TITLE_ORDER_REGEX="lsaffie - worklog" ${2/3-top-l} | ${3/2-bottom-m} | ${3/2-bottom-l} | ${3/2-bottom-r} | ${2/3-top-m} | ${2/3-top-r}
-layout tv6 'Quip' ${3/2-bottom-r}
+layout Amazon 'Slack':REPEAT                            ${1-main}
+layout Amazon 'Firefox':REPEAT                          ${2-l}
+layout Amazon 'Amazon Chime':REPEAT                     ${2-top-r}
+layout Amazon 'Microsoft Outlook':REPEAT,IGNORE_FAIL,TITLE_ORDER_REGEX="Calendar"   ${2-bottom-r} | ${2-top-r}
 #############
 #
 
@@ -194,11 +176,7 @@ bind l:ctrl;alt ${3/2-bottom-r}
 
 # Layout Bindings
 #get script from https://gist.github.com/lsaffie/bebd920d4ed632a3af643db5d21c4141
-bind 1:ctrl;alt;cmd    layout 1monitor
-bind 2:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout 2monitors
-bind 3:ctrl;alt    layout tv6
-bind 4:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout tv4
-bind 5:ctrl;alt;cmd    sequence shell wait path:~/dotfiles '/usr/bin/osascript set-all-chrome-windows-to-first.scpt' | layout tv6
+bind 3:ctrl;alt;cmd    layout Amazon
 
 # Window Hints
 bind esc:cmd hint
