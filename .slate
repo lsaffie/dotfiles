@@ -66,9 +66,16 @@ alias laptop-1/4-r ${1/4-r} {screen-1}
 #############
 #
 layout Amazon 'Slack':REPEAT                            ${1-main}
-layout Amazon 'Firefox':REPEAT                          ${2-l}
-layout Amazon 'Amazon Chime':REPEAT                     ${2-top-r}
-layout Amazon 'Microsoft Outlook':REPEAT,IGNORE_FAIL,TITLE_ORDER_REGEX="Calendar"   ${2-bottom-r} | ${2-top-r}
+layout Amazon 'Firefox':REPEAT                          ${2-l} | ${2-r}
+layout Amazon 'Amazon Chime':REPEAT                     ${2-top-r} | ${2-bottom-r}
+layout Amazon 'Microsoft Outlook':REPEAT,IGNORE_FAIL,TITLE_ORDER_REGEX="Calendar";"Inbox"   ${2-bottom-r} | ${2-top-r}
+bind 2:ctrl;alt;cmd    layout Amazon
+
+layout Chime 'Amazon Chime':REPEAT                     ${2-top-r} | ${2-bottom-r}
+bind h:shift;cmd       sequence layout Chime | shell '/Users/lssaffie/bin/activate Amazon Chime'
+
+layout Outlook 'Microsoft Outlook':REPEAT,IGNORE_FAIL,TITLE_ORDER_REGEX="Calendar";"Inbox"   ${2-bottom-r} | ${2-top-r}
+bind c:shift;cmd       sequence layout Outlook | shell '/Users/lssaffie/bin/activate Microsoft Outlook'
 #############
 #
 
@@ -176,7 +183,6 @@ bind l:ctrl;alt ${3/2-bottom-r}
 
 # Layout Bindings
 #get script from https://gist.github.com/lsaffie/bebd920d4ed632a3af643db5d21c4141
-bind 3:ctrl;alt;cmd    layout Amazon
 
 # Window Hints
 bind esc:cmd hint
@@ -194,9 +200,9 @@ bind 1:ctrl;alt relaunch
 source .slate.test if_exists
 
 ## show
-bind c:shift;cmd shell '/Users/lssaffie/bin/activate Microsoft Outlook'
-bind m:shift;cmd shell '/Users/lssaffie/bin/activate Microsoft Outlook'
-bind h:shift;cmd shell '/Users/lssaffie/bin/activate Amazon Chime'
+#bind c:shift;cmd shell '/Users/lssaffie/bin/activate Microsoft Outlook'
+#bind m:shift;cmd shell '/Users/lssaffie/bin/activate Microsoft Outlook'
+#bind h:shift;cmd shell '/Users/lssaffie/bin/activate Amazon Chime'
 bind q:shift;cmd focus 'Quip'
 bind g:shift;cmd focus 'Chrome'
 bind t:shift;cmd focus 'Microsoft To Do'
