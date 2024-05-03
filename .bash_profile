@@ -47,3 +47,4 @@ eval "$(nodenv init -)"
 eval "$(pyenv init -)"
 export PATH=$HOME/.toolbox/bin:$PATH
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home
+export PATH="/usr/local/opt/mariadb@10.3/bin:$PATH"

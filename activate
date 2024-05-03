@@ -4,9 +4,7 @@ APP=$*
 
 function activate_app {
 /usr/bin/osascript <<END_SCRIPT
-tell application "${APP}"
-    activate
-end tell
+tell application "System Events" to set frontmost of process "${APP}" to true
 END_SCRIPT
 }
 

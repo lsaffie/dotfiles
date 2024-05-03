@@ -106,3 +106,4 @@ gitrebasemaster() { CURRENT_BRANCH=$(git branch | grep \* | cut -d ' ' -f2) && g
 gitmergemaster() { CURRENT_BRANCH=$(git branch | grep \* | cut -d ' ' -f2) && git checkout master && git pull origin master && git checkout $CURRENT_BRANCH && git merge master;}
 
 alias rmswp="find . -name "*.swp" -o -name "*.swo" | xargs rm"
+alias brewx86="arch -x86_64 brew"
